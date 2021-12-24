@@ -1,16 +1,17 @@
 import Navbar from "./components/Navbar/Navbar";
 import SearchResults from "./components/SearchResults/SearchResults";
+import ResultsProvider from "./context/ResultsProvider";
 
 function App() {
   return (
-    <div className="App">
+    <ResultsProvider>
       <header>
         <Navbar />
       </header>
       <main>
         <SearchResults />
       </main>
-    </div>
+    </ResultsProvider>
   );
 }
 

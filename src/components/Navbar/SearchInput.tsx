@@ -1,16 +1,7 @@
 import { useEffect, useState } from "react";
 
-interface Input {
-  className: string;
-}
-
-const SearchInput: React.FC<Input> = (props) => {
+const SearchInput: React.FC<{ className: string }> = (props) => {
   const [inputValue, setInputValue] = useState("elpassion");
-
-  const inputTextHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    console.log(inputValue);
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,9 +19,15 @@ const SearchInput: React.FC<Input> = (props) => {
     fetchData();
   }, [inputValue]);
 
+  const inputTextHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+    console.log(inputValue);
+  };
+
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
   };
+
   return (
     <form onSubmit={submitHandler}>
       <input

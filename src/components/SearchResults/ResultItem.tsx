@@ -1,27 +1,9 @@
 import styles from "./ResultItem.module.css";
 import StarIcon from "../../assets/icons/results/star-icon.svg";
 import JsIcon from "../../assets/icons/results/Js-icon.svg";
+import Results from "../../models/Results";
 
-interface Result {
-  result: {
-    name?: string;
-    login?: string;
-    avatar?: string;
-    id?: number;
-    bio?: string;
-    location?: string;
-    followers?: number;
-    following?: number;
-    starred?: number;
-    full_name?: string;
-    description?: string;
-    language?: string;
-    updated?: string;
-    watchers?: number;
-  };
-}
-
-const ResultItem: React.FC<Result> = ({ result }) => {
+const ResultItem: React.FC<Results> = ({ result }) => {
   return (
     <li className={styles.result}>
       <div className={styles.avatar_container}>
