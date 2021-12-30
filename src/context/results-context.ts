@@ -1,20 +1,28 @@
-import React from "react";
+import { createContext } from "react";
 
-const ResultsContext = React.createContext({
-  name: "",
-  login: "",
-  avatar: "",
-  id: 0,
-  bio: "",
-  location: "",
-  followers: 0,
-  following: 0,
-  starred: 0,
-  full_name: "",
-  description: "",
-  language: "",
-  updated: "",
-  watchers: 0,
-});
+// type ResultType = {
+//   name: string;
+//   login: string;
+//   avatar: string;
+//   id: number;
+//   bio: string;
+//   location: string;
+//   followers: number;
+//   following: number;
+//   starred: number;
+//   full_name: string;
+//   description: string;
+//   language: string;
+//   updated: string;
+//   watchers: number;
+// };
+
+// type InitialStateType = {
+//   results: ResultType[];
+// };
+
+// const initialState = { results: ['123123123'] };
+
+const ResultsContext = createContext<any>([]);
 
 export default ResultsContext;

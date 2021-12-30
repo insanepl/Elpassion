@@ -1,25 +1,36 @@
 import ResultsContext from "./results-context";
+import { useState, useEffect } from "react";
 
 const ResultsProvider: React.FC = (props) => {
-  const resultsContext = {
-    name: "",
-    login: "",
-    avatar: "",
-    id: 0,
-    bio: "",
-    location: "",
-    followers: 0,
-    following: 0,
-    starred: 0,
-    full_name: "",
-    description: "",
-    language: "",
-    updated: "",
-    watchers: 0,
-  };
+  const [params, setParams] = useState("elpassion");
+  const [items, setItems] = useState<any>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await Promise.all([
+          fetch(`https://api.github.com/search/users?q=${params}`),
+          fetch(`https://api.github.com/search/repositories?q=${params}`),
+        ]);
+        const data = await Promise.all(res.map((r) => r.json()));
+        const dataPrepared = data.map((elem) => elem.items).flat();
+
+        console.log(data.flat());
+        setItems(dataPrepared);
+      } catch {
+        throw Error("Promise failed");
+      }
+    };
+    fetchData();
+  }, [params]);
 
   return (
-    <ResultsContext.Provider value={resultsContext}>
+    <ResultsContext.Provider
+      value={{
+        items,
+        setParams,
+      }}
+    >
       {props.children}
     </ResultsContext.Provider>
   );

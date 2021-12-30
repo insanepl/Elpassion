@@ -1,27 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import ResultsContext from "../../context/results-context";
 
 const SearchInput: React.FC<{ className: string }> = (props) => {
-  const [inputValue, setInputValue] = useState("elpassion");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await Promise.all([
-          fetch(`https://api.github.com/search/users?q=${inputValue}`),
-          fetch(`https://api.github.com/search/repositories?q=${inputValue}`),
-        ]);
-        const data = await Promise.all(res.map((r) => r.json()));
-        console.log(data.flat());
-      } catch {
-        throw Error("Promise failed");
-      }
-    };
-    fetchData();
-  }, [inputValue]);
+  const resultsContext = useContext(ResultsContext);
 
   const inputTextHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    console.log(inputValue);
+    console.log(resultsContext);
+    resultsContext.setParams(e.target.value);
   };
 
   const submitHandler = (e: React.FormEvent) => {
