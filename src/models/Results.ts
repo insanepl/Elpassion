@@ -2,7 +2,7 @@ interface Results {
   result: {
     name?: string;
     login?: string;
-    avatar?: string;
+    avatar_url?: string;
     id: number;
     bio?: string;
     location?: string;
@@ -12,7 +12,7 @@ interface Results {
     full_name?: string;
     description?: string;
     language?: string;
-    updated?: string;
+    updated_at?: string;
     watchers?: number;
   };
 }

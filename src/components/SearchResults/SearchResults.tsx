@@ -8,7 +8,9 @@ const SearchResults: React.FC = () => {
 
   return (
     <section>
-      <h1 className={styles.total_results}>2,530 results</h1>
+      <h1 className={styles.total_results}>
+        {resultsContext.resultsNumber} results
+      </h1>
       <ul>
         {resultsContext.items.map((result: any) => (
           <ResultItem result={result} key={result.id} />
