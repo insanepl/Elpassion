@@ -2,7 +2,7 @@ import ResultsContext from "./results-context";
 import { useState, useEffect } from "react";
 
 const ResultsProvider: React.FC = (props) => {
-  const [params, setParams] = useState("javascript");
+  const [params, setParams] = useState("elpassion");
   const [items, setItems] = useState<any>([]);
   const [resultsNumber, setResultsNumber] = useState(0);
 

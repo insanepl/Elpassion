@@ -1,13 +1,15 @@
 .result {
   border-top: 1px solid #c4c4c4;
   padding-top: 1.3rem;
-  display: flex;
+  list-style: none;
+  /* display: flex; */
 }
 
 .result__name {
   font-size: 1rem;
   color: #166cd7;
   margin-bottom: 0.2rem;
+  margin-left: 0.6rem;
 }
 
 .result__name--grey {
@@ -26,12 +28,89 @@
   margin: 1rem 0;
 }
 
+.result__lang {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+}
+
+.java {
+  background-color: #ab7b3f;
+}
+
+.python {
+  background-color: #37709f;
+}
+
+.scss {
+  background-color: #c4568c;
+}
+
+.jupyter {
+  background-color: #d85b1f;
+}
+
+.hcl {
+  background-color: #bdbdbe;
+}
+
+.common.lisp {
+  background-color: #45b58c;
+}
+
+.assembly {
+  background-color: #6d4c19;
+}
+
+.javascript {
+  background-color: #dfcf60;
+}
+
+.php {
+  background-color: #505f93;
+}
+
+.ruby {
+  background-color: #b50909;
+}
+
+.typescript {
+  background-color: #0bc1e6;
+}
+
+.html {
+  background-color: #0be637;
+}
+
+.kotlin {
+  background-color: #a37f9e;
+}
+
+.css {
+  background-color: #ff006f;
+}
+
+.swift {
+  background-color: #e6e6e6;
+}
+
 .result__list-item {
   display: flex;
   align-items: center;
   margin-right: 0.5rem;
   font-size: 0.75rem;
   color: #6f7781;
+  line-height: 1.5rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.margin {
+  margin-left: 2.6rem;
 }
 
 .result__list-icon {
@@ -40,6 +119,11 @@
 
 .result__avatar {
   width: 100%;
+}
+
+.result__repo {
+  width: 20px;
+  height: 20px;
 }
 
 .avatar_container {

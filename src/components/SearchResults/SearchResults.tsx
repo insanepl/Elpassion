@@ -7,7 +7,7 @@ const SearchResults: React.FC = () => {
   const resultsContext = useContext(ResultsContext);
 
   return (
-    <section>
+    <section className={styles.results_container}>
       <h1 className={styles.total_results}>
         {resultsContext.resultsNumber} results
       </h1>

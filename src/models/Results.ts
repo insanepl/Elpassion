@@ -12,7 +12,7 @@ interface Results {
     full_name?: string;
     description?: string;
     language?: string;
-    updated_at?: string;
+    updated_at?: any;
     watchers?: number;
   };
 }
