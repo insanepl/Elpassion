@@ -2,6 +2,7 @@ import styles from "./ResultItem.module.css";
 import StarIcon from "../../assets/icons/results/star-icon.svg";
 import Results from "../../models/Results";
 import RepoIcon from "../../assets/icons/results/repo-icon.svg";
+import { Link } from "react-router-dom";
 
 const ResultItem: React.FC<Results> = ({ result }) => {
   const convertedDate = new Date(result.updated_at);
@@ -26,11 +27,12 @@ const ResultItem: React.FC<Results> = ({ result }) => {
         </div>
         {result.name && <h1 className={styles.result__name}>{result.name}</h1>}
         {result.login && (
-          <h1
+          <Link
+            to={`/resultslist/user/${result.id}`}
             className={`${styles.result__name} ${styles["result__name--grey"]}`}
           >
             {result.login}
-          </h1>
+          </Link>
         )}
       </div>
       <div className={styles.margin}>
@@ -42,7 +44,12 @@ const ResultItem: React.FC<Results> = ({ result }) => {
         <ul className={styles.result__list}>
           {result.watchers || result.watchers === 0 ? (
             <li className={styles["result__list-item"]}>
-              <img src={StarIcon} alt="star icon" /> {result.watchers}
+              <img
+                className={styles["result__list-icon"]}
+                src={StarIcon}
+                alt="star icon"
+              />
+              {result.watchers}
             </li>
           ) : (
             ""

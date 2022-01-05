@@ -1,16 +1,16 @@
-import Navbar from "./components/Navbar/Navbar";
-import SearchResults from "./components/SearchResults/SearchResults";
+import { Routes, Route, Navigate } from "react-router-dom";
 import ResultsProvider from "./context/ResultsProvider";
+import ResultsList from "./pages/ResultsList";
+import UserPage from "./pages/UserPage";
 
 function App() {
   return (
     <ResultsProvider>
-      <header>
-        <Navbar />
-      </header>
-      <main>
-        <SearchResults />
-      </main>
+      <Routes>
+        <Route path="/" element={<Navigate to="/resultslist" />} />
+        <Route path="/resultslist" element={<ResultsList />} />
+        <Route path="/resultslist/user/:userID" element={<UserPage />} />
+      </Routes>
     </ResultsProvider>
   );
 }

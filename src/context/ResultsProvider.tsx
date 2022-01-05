@@ -7,11 +7,15 @@ const ResultsProvider: React.FC = (props) => {
   const [resultsNumber, setResultsNumber] = useState(0);
 
   useEffect(() => {
+    const abortController = new AbortController();
+
     const fetchData = async () => {
       try {
         const res = await Promise.all([
           fetch(`https://api.github.com/search/users?q=${params}`),
-          fetch(`https://api.github.com/search/repositories?q=${params}`),
+          fetch(`https://api.github.com/search/repositories?q=${params}`, {
+            signal: abortController.signal,
+          }),
         ]);
         const data = await Promise.all(res.map((r) => r.json()));
         const dataPrepared = data
@@ -19,7 +23,6 @@ const ResultsProvider: React.FC = (props) => {
           .flat()
           .sort((a: any, b: any) => (a.id > b.id ? 1 : -1));
 
-        console.log(dataPrepared);
         setResultsNumber(dataPrepared.length);
         setItems(dataPrepared);
       } catch {
@@ -27,6 +30,10 @@ const ResultsProvider: React.FC = (props) => {
       }
     };
     fetchData();
+
+    return () => {
+      abortController.abort();
+    };
   }, [params]);
 
   return (

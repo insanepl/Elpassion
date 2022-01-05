@@ -1,14 +1,15 @@
 import styles from "./Navbar.module.css";
 import { ReactComponent as Logo } from "../../assets/icons/navbar/logo-white.svg";
 import SearchInput from "./SearchInput";
+import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
     <nav className={styles.nav}>
       <div>
-        <a href="#">
+        <Link to="/">
           <Logo />
-        </a>
+        </Link>
       </div>
       <SearchInput className={styles.nav__input} />
     </nav>
