@@ -16,13 +16,13 @@ const ResultsProvider: React.FC = (props) => {
         const res = await Promise.all([
           fetch(`https://api.github.com/search/users?q=${params}`, {
             headers: {
-              Authorization: "token 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",
+              Authorization: "token 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",
             },
             signal: abortController.signal,
           }),
           fetch(`https://api.github.com/search/repositories?q=${params}`, {
             headers: {
-              Authorization: "token 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",
+              Authorization: "token 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",
             },
             signal: abortController.signal,
           }),
