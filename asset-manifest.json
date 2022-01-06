@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Elpassion/static/css/main.f87b08b9.css",
+    "main.js": "/Elpassion/static/js/main.afbebd4b.js",
+    "static/media/logo-white.svg": "/Elpassion/static/media/logo-white.eed88e6855d98be2659e545c2a843165.svg",
+    "static/media/hero-icon.svg": "/Elpassion/static/media/hero-icon.3dc9bcb6c6501965f137fd909b9b025f.svg",
+    "index.html": "/Elpassion/index.html",
+    "static/media/repo-icon.svg": "/Elpassion/static/media/repo-icon.62891d75c1ed7f373ad4691b4e22bde0.svg",
+    "static/media/star-icon.svg": "/Elpassion/static/media/star-icon.a1418fb799fb766e1f16d5822132c3e0.svg",
+    "main.f87b08b9.css.map": "/Elpassion/static/css/main.f87b08b9.css.map",
+    "main.afbebd4b.js.map": "/Elpassion/static/js/main.afbebd4b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f87b08b9.css",
+    "static/js/main.afbebd4b.js"
+  ]
+}
