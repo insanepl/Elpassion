@@ -39,6 +39,7 @@
 * CSS Modules
 * TypeScript
 * GitHub API
+* Netlify
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -49,7 +50,7 @@
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/toocozzy/Elpassion.git
    ```
 2. Install NPM packages
    ```sh
@@ -66,7 +67,7 @@
  E-mail - oskar.daszkowski@gmail.com <br>
  LinkedIn - https://www.linkedin.com/in/oskar-daszkowski/
 
-Project Link: https://toocozzy.github.io/elpassion/
+Project Link:https://elpassion.netlify.app/
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
