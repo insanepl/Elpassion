@@ -3,30 +3,46 @@ import { useState, useEffect } from "react";
 
 const ResultsProvider: React.FC = (props) => {
   const [params, setParams] = useState("elpassion");
-  const [items, setItems] = useState<any>([]);
-  const [resultsNumber, setResultsNumber] = useState(0);
+  const [items, setItems] = useState<{}>([]);
+  const [resultsNumber, setResultsNumber] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const abortController = new AbortController();
 
     const fetchData = async () => {
+      setIsLoading(true);
       try {
         const res = await Promise.all([
-          fetch(`https://api.github.com/search/users?q=${params}`),
+          fetch(`https://api.github.com/search/users?q=${params}`, {
+            headers: {
+              Authorization: "token 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",
+            },
+            signal: abortController.signal,
+          }),
           fetch(`https://api.github.com/search/repositories?q=${params}`, {
+            headers: {
+              Authorization: "token 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",
+            },
             signal: abortController.signal,
           }),
         ]);
         const data = await Promise.all(res.map((r) => r.json()));
+        const numberOfResults = new Intl.NumberFormat("en-US").format(
+          data[0].total_count + data[1].total_count
+        );
+
+        setResultsNumber(numberOfResults);
         const dataPrepared = data
           .map((elem) => elem.items)
           .flat()
           .sort((a: any, b: any) => (a.id > b.id ? 1 : -1));
 
-        setResultsNumber(dataPrepared.length);
         setItems(dataPrepared);
-      } catch {
-        throw Error("Promise failed");
+
+        setIsLoading(false);
+      } catch (e) {
+        console.log(e);
       }
     };
     fetchData();
@@ -42,6 +58,7 @@ const ResultsProvider: React.FC = (props) => {
         items,
         setParams,
         resultsNumber,
+        isLoading,
       }}
     >
       {props.children}

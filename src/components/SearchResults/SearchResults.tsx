@@ -6,9 +6,11 @@ import ResultsContext from "../../context/results-context";
 const SearchResults: React.FC = () => {
   const resultsContext = useContext(ResultsContext);
 
-  return (
-    <section className={styles.results_container}>
-      <h1 className={styles.total_results}>
+  return resultsContext.isLoading ? (
+    <p className={styles.results__loading}>loading...</p>
+  ) : (
+    <section className={styles.results__wrapper}>
+      <h1 className={styles.results__total}>
         {resultsContext.resultsNumber} results
       </h1>
       <ul>

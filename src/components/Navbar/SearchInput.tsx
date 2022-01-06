@@ -5,7 +5,10 @@ const SearchInput: React.FC<{ className: string }> = (props) => {
   const resultsContext = useContext(ResultsContext);
 
   const inputTextHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(resultsContext);
+    if (e.target.value.trim().length === 0) {
+      return resultsContext.setParams("elpassion");
+    }
+
     resultsContext.setParams(e.target.value);
   };
 

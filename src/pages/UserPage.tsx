@@ -14,8 +14,6 @@ const UserPage: React.FC = () => {
     return elem.id == match.userID;
   });
 
-  console.log(user);
-
   return (
     <>
       <Navbar />
@@ -30,8 +28,11 @@ const UserPage: React.FC = () => {
         <p className={styles.user__login}>{user.login}</p>
         <ul className={styles["user__detail-list"]}>
           <li className={styles["user__detail-item"]}>
-            <img className={styles["user__detail-icon"]}
-            src={HeroIcon} alt="hero icon" />
+            <img
+              className={styles["user__detail-icon"]}
+              src={HeroIcon}
+              alt="hero icon"
+            />
             {user.followers_url.length} Followers
           </li>
           <li className={styles["user__detail-item"]}>
