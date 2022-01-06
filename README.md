@@ -24,7 +24,7 @@
   <h3 align="center">ElPassion Assignment</h3>
 
   <p align="center">
-    <a href="https://toocozzy.github.io/elpassion/">View Demo</a>
+    <a href="https://elpassion.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/toocozzy/elpassion/issues">Report Bug</a>
     ·
