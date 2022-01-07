@@ -36,7 +36,9 @@
 ### Built With
 
 * React.js
+* React Router
 * CSS Modules
+* BEM methodology 
 * TypeScript
 * GitHub API
 * Netlify
